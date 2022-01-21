@@ -2,9 +2,15 @@ package org.springframework.samples.petclinic.care;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
+@Service
 public class CareService {    
+	
+	@Autowired
+	CareProvisionRepository careProvisionRepository;
 
     public List<Care> getAllCares(){
         return null;
@@ -24,7 +30,7 @@ public class CareService {
     }
 
     public List<CareProvision> getAllCaresProvided(){
-        return null;
+        return careProvisionRepository.findAll();
     }
 
     public List<CareProvision> getCaresProvided(Integer visitId){
